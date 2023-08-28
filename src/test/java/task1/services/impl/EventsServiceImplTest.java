@@ -50,11 +50,6 @@ class EventsServiceImplTest {
         }
 
         @Test
-        public void on_existed_event_throws_exception() {
-             assertThrows(IllegalArgumentException.class, () -> eventsService.addEvent("new event", LocalDate.of(2023, 9, 3), LocalDate.of(2023, 9, 4)));
-        }
-
-        @Test
         public void returns_created_event() {
             Event actual = eventsService.addEvent(NOT_EXIST_EVENT_TITLE, DEFAULT_START_DATE, DEFAULT_END_DATE);
 

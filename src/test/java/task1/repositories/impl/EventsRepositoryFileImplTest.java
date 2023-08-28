@@ -37,7 +37,7 @@ class EventsRepositoryFileImplTest {
 
         @Test
         public void writes_correct_line_to_file() throws Exception {
-            Event event = new Event("new event", LocalDate.of(2023, 9, 01), LocalDate.of(2023, 9, 2));
+            Event event = new Event("new event", LocalDate.of(2023, 9, 01), LocalDate.of(2023, 9, 02));
 
             eventsRepository.save(event);
 
@@ -68,7 +68,7 @@ class EventsRepositoryFileImplTest {
             writer.close();
 
             List<Event> expected = Arrays.asList(
-                    new Event("new event", LocalDate.of(2023, 9, 01), LocalDate.of(2023, 9, 01)),
+                    new Event("new event", LocalDate.of(2023, 9, 01), LocalDate.of(2023, 9, 02)),
                     new Event("new year", LocalDate.of(2023, 12, 31), LocalDate.of(2024, 1, 01))
             );
 

@@ -1,6 +1,5 @@
 package task1.services.impl;
 
-import de.ait.shop.models.User;
 import task1.models.Event;
 import task1.repositories.EventsRepository;
 import task1.services.EventsService;
@@ -24,11 +23,11 @@ public class EventsServiceImpl implements EventsService {
             throw new RuntimeException("Дата начала не может быть позднее даты завершения");
         }
 
-        Event event = new Event(title, startDate, endDate); // создаем пользователя
+        Event event = new Event(title, startDate, endDate);
 
-        eventsRepository.save(event); // сохраняем пользователя в хранилище
+        eventsRepository.save(event);
 
-        return event; // возвращаем пользователя как результат
+        return event;
     }
 
     @Override
