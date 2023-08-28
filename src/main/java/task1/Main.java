@@ -13,14 +13,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         EventsRepository eventsRepositoryList = new EventsRepositoryListImpl();
-        EventsRepository eventsRepositoryFile = new EventsRepositoryFileImpl("events");
+        EventsRepository eventsRepositoryFile = new EventsRepositoryFileImpl("events.txt");
         EventsService eventsService = new EventsServiceImpl(eventsRepositoryFile);
         EventController eventController = new EventController(scanner, eventsService);
 
         boolean isRun = true;
 
         while (isRun) {
-            String command = scanner.nextLine(); // считываем команду
+            String command = scanner.nextLine();
 
             switch (command) {
                 case "/addEvent" ->

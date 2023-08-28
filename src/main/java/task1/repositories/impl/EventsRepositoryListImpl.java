@@ -37,4 +37,12 @@ public class EventsRepositoryListImpl implements EventsRepository {
     public void update(Event model) {
 
     }
+
+    @Override
+    public Event findOneByTitle(String title) {
+        return events.stream()
+                .filter(event -> event.getTitle().equals(title))
+                .findFirst()
+                .orElse(null);
+    }
 }

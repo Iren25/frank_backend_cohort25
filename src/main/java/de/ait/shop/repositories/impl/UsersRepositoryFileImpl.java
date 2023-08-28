@@ -7,13 +7,13 @@ import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UsersRepositoryFileImp implements UsersRepository {
+public class UsersRepositoryFileImpl implements UsersRepository {
 
     private final String fileName;
 
     private Long generatedId = 1L;
 
-    public UsersRepositoryFileImp(String fileName) {
+    public UsersRepositoryFileImpl(String fileName) {
         this.fileName = fileName;
     }
 

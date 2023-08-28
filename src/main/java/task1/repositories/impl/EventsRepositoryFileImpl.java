@@ -61,4 +61,20 @@ public class EventsRepositoryFileImpl implements EventsRepository {
     public void update(Event model) {
 
     }
+
+    @Override
+    public Event findOneByTitle(String title) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) { // открываем файл для чтения
+            return reader.lines() // получаем все строки из файла
+                    .map(line -> line.split("\\|")) // разбиваем каждую строку на массив из нескольких строк по разделителю
+                    .filter(parsed -> parsed[1].equals(title))
+                    .findFirst()
+                    .map(parsed -> new Event(Long.parseLong(parsed[0]), parsed[1], LocalDate.parse(parsed[2]), LocalDate.parse(parsed[3])))
+                    .orElse(null);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
